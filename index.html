@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Janiki Birthday Surprise</title>
+<style>
+body {
+  margin:0;
+  padding:0;
+  font-family: 'Arial', sans-serif;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+.page {
+  display: none;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  padding: 20px;
+}
+.active { display: flex; animation: fadeIn 0.6s ease; }
+@keyframes fadeIn { from {opacity:0; transform:translateY(10px);} to {opacity:1; transform:translateY(0);} }
+.photo { width: 80%; max-width: 700px; border-radius: 20px; margin:20px auto; box-shadow:0 0 25px #ff69b4; }
+.nextBtn { padding:12px 25px; margin-top:20px; font-size:18px; background:#ff1493; color:#fff; border:none; border-radius:12px; cursor:pointer; }
+.floatingHeart { position:absolute; font-size:24px; animation: floatUp 4s linear infinite; }
+@keyframes floatUp { 0%{ transform: translateY(0) rotate(0deg); opacity:1; } 100%{ transform: translateY(-500px) rotate(360deg); opacity:0; } }
+.neon { color:#ff1493; text-shadow:0 0 5px #fff,0 0 10px #ff1493,0 0 20px #ff1493; }
+.blink { animation: blink 1s infinite; }
+@keyframes blink { 0%,50%,100%{opacity:1;} 25%,75%{opacity:0.2;} }
+</style>
+</head>
+<body>
+
+<!-- Floating Hearts -->
+<div id="heartsContainer"></div>
+
+<div class="page active" id="p1">
+<h1 class="neon">Janikiiii ❤️</h1>
+<p>Nuvvu ee page open chesav annte nenu automatic ga smile avuta 😍</p>
+<button class="nextBtn" onclick="nextPage()">Next ➜</button>
+</div>
+
+<div class="page" id="p2">
+<h2>❓ Nenu ninnu propose chesina date gurthu unda…?</h2>
+<button class="nextBtn" onclick="alert('Adeee… nene telusukovali ani kaadu… Nee gunde lo space unnadani telusu 💕'); nextPage();">Undi</button>
+<button class="nextBtn" onclick="alert('Adeee… nene telusukovali ani kaadu… 💕'); nextPage();">Cheppanu</button>
+<button class="nextBtn" onclick="alert('Confirm gaa undi kani nenu cheppanu 💕'); nextPage();">Confirm</button>
+<button class="nextBtn" onclick="alert('Ayyo bayatipomaa… gurthu ledhu 💕'); nextPage();">Ayyo</button>
+</div>
+
+<div class="page" id="p3">
+<h2>Janikiii…</h2>
+<p class="neon">Nuvvu naa life lo entry ayyaka oka calm, oka glow, oka meaning vachchindi.</p>
+<p>Nuvvu matladite chaalu… nenu full peaceful ayipotha.</p>
+<button class="nextBtn" onclick="nextPage()">Next ➜</button>
+</div>
+
+<div class="page" id="p4">
+<h2>Photo Page 1</h2>
+<img class="photo" src="https://drive.google.com/uc?export=view&id=1hjjTe9wG1UirSEu6lVxi8s_rdH8vCF8G" />
+<p>Idi chusi nenu em anukuntaa? ❤️🔥</p>
+<button class="nextBtn" onclick="nextPage()">Next ➜</button>
+</div>
+
+<div class="page" id="p5">
+<h2>Sweet Naughty Tone</h2>
+<p class="neon">Nee smile ela vuntado telusa… Chinna light la untadi… Ade sare sare ani nannu calm chestadi.</p>
+<button class="nextBtn" onclick="nextPage()">Next ➜</button>
+</div>
+
+<div class="page" id="p6">
+<h2>Photo Page 2</h2>
+<img class="photo" src="https://drive.google.com/uc?export=view&id=1hjjTe9wG1UirSEu6lVxi8s_rdH8vCF8G" />
+<p>Ultra dangerous level attractive 😭🔥</p>
+<button class="nextBtn" onclick="nextPage()">Next ➜</button>
+</div>
+
+<div class="page" id="p7">
+<h2>Emotional + Caring</h2>
+<p>Nuvvu happy ga unte… Nenu world lo happiest person.</p>
+<p>Nuvvu sad ga unte… Naku breathe kuda correct ga avvadu Janikiii.</p>
+<button class="nextBtn" onclick="nextPage()">Next ➜</button>
+</div>
+
+<div class="page" id="p8">
+<h2>Photo Page 3</h2>
+<img class="photo" src="https://drive.google.com/uc?export=view&id=1RmIqzL-mYTT5HH2XUmpVy4SpCkVbHYNJ" />
+<p>Idi chuste na heart: 💗💗💗</p>
+<button class="nextBtn" onclick="nextPage()">Next ➜</button>
+</div>
+
+<div class="page" id="p9">
+<h2>Fun / Flirty Question</h2>
+<p>❓ Nee first impression nannu chusi enti anukuva?</p>
+<button class="nextBtn" onclick="alert('Cute ga unnadu 😏'); nextPage();">Cute ga unnadu</button>
+<button class="nextBtn" onclick="alert('Konchem over talking 😏'); nextPage();">Over talking</button>
+<button class="nextBtn" onclick="alert('Silent but dangerous 😏'); nextPage();">Silent but dangerous</button>
+<button class="nextBtn" onclick="alert('Already istapadavu 😏'); nextPage();">Already istapadavu</button>
+</div>
+
+<div class="page" id="p10">
+<h2>Photo Page 4</h2>
+<img class="photo" src="https://drive.google.com/uc?export=view&id=1MOPVH03vHwoLYi7SdSugbCyLN4ZJ0Rkn" />
+<p>Na favourite version of you. Simple… cute… heart-stealing.</p>
+<button class="nextBtn" onclick="nextPage()">Next ➜</button>
+</div>
+
+<script>
+const pages = document.querySelectorAll('.page');
+let currentPage = 0;
+function nextPage(){
+  pages[currentPage].classList.remove('active');
+  currentPage = (currentPage + 1) % pages.length;
+  pages[currentPage].classList.add('active');
+}
+// Floating hearts animation
+function createHeart(){
+  const heart = document.createElement('div');
+  heart.className = 'floatingHeart';
+  heart.style.left = Math.random()*90+'%';
+  heart.innerText = '❤️';
+  heart.style.fontSize = 14 + Math.random()*18 +'px';
+  document.getElementById('heartsContainer').appendChild(heart);
+  setTimeout(()=>heart.remove(),4000);
+}
+setInterval(createHeart,500);
+</script>
+</body>
+</html>
